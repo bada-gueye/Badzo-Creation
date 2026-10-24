@@ -8,415 +8,186 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --blue-deep:#0A2A5E;
-  --blue-mid:#1B4B91;
-  --blue-bright:#2E6BD6;
-  --blue-pale:#f8fafc;
-  --white:#2d429d;
-  --ink:#02050b;
-  --line:#D7E0EE;
-  --font-head:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-}
+:root{--blue-deep:#0A2A5E;--blue-mid:#1B4B91;--blue-bright:#2E6BD6;--blue-pale:#f4f7fc;--ink:#02050b;--line:#D7E0EE;--font-head:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);}
-body{
-  font-family:var(--font-body);
-  color:var(--ink);
-  background:var(--white);
-  line-height:1.6;
-  overflow-x:hidden;
-}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%;}
+body{font-family:var(--font-body);color:var(--ink);line-height:1.6;overflow-x:hidden;background:linear-gradient(120deg,#FFF,#F2F6FD,#E3ECFA,#FFF);background-size:300% 300%;animation:bgMove 22s ease-in-out infinite;}
+@keyframes bgMove{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,28px);}
 
-/* NAV */
-header{
-  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
-  background:rgba(12, 76, 148, 0.92);backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto;}
-.logo{display:flex;align-items:center;gap:10px;
- 
-}
-.logo-mark{
-  
-  width:38px;height:38px;border-radius:9px;
-  background:linear-gradient(155deg,var(--blue-deep),var(--blue-bright));
-
-  color:#fff;display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-weight:700;font-size:16px;letter-spacing:-.5px;
-}
-.logo-text{font-family:var(--font-head);font-weight:700;font-size:17px;letter-spacing:.2px;color:var(--blue-deep);
-           
-}
-.logo-text span{font-weight:400;color:var(--blue-mid);
-
-}
-.nav-links{display:flex;gap:32px;font-size:14.5px;font-weight:500;}
-.nav-links a{color:var(--ink);opacity:.75;transition:opacity .2s;}
+/* HEADER */
+header{position:sticky;top:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(10,42,94,.95);backdrop-filter:blur(8px);}
+nav.main{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px clamp(16px,4vw,28px);max-width:1120px;margin:0 auto;}
+.logo1{display:flex;align-items:center;gap:10px;min-width:0;}
+.logo1 img{height:48px;width:auto;}
+.logo-text{font-family:var(--font-head);font-weight:700;font-size:17px;color:#fff;white-space:nowrap;}
+.nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:500;}
+.nav-links a{color:#fff;opacity:.8;transition:opacity .2s;}
 .nav-links a:hover{opacity:1;}
-.nav-cta{
-  background:var(--blue-deep);color:#f8f9fc;padding:10px 20px;border-radius:8px;
-  font-size:14px;font-weight:600;transition:background .2s;
-}
-.nav-cta:hover{background:var(--blue-mid);}
-.burger{display:none;}
+.nav-cta{background:#fff;color:var(--blue-deep);padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap;}
+.burger{display:none;background:none;border:1px solid rgba(255,255,255,.4);border-radius:8px;width:42px;height:42px;color:#fff;font-size:22px;cursor:pointer;}
 
 /* HERO */
-.hero{
-  padding:100px 0 90px;
-  background:
-    radial-gradient(600px 340px at 85% -10%,var(--blue-pale) 0%,transparent 70%);
-}
-.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
-.eyebrow{
-  font-size:13.5px;color:var(--blue-mid);font-weight:600;margin-bottom:18px;
-}
-h1.hero-title{
-  font-family:var(--font-head);
-  font-size:clamp(34px,4.4vw,54px);
-  font-weight:700;line-height:1.08;letter-spacing:-1px;color:var(--blue-deep);
-  margin-bottom:22px;
-}
+section{padding:clamp(56px,8vw,88px) 0;position:relative;overflow:hidden;isolation:isolate;}
+.hero{padding:clamp(50px,8vw,100px) 0 clamp(50px,7vw,90px);background:linear-gradient(120deg,#FFF,#EEF3FC,#DCE7F9,#FFF);background-size:300% 300%;animation:bgMove 24s ease-in-out infinite;}
+.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,56px);align-items:center;}
+.eyebrow{font-size:13.5px;color:var(--blue-mid);font-weight:600;margin-bottom:18px;}
+h1.hero-title{font-family:var(--font-head);font-size:clamp(28px,4.4vw,52px);font-weight:700;line-height:1.1;letter-spacing:-1px;color:var(--blue-deep);margin-bottom:22px;}
 .hero-title em{font-style:normal;color:var(--blue-bright);}
-.hero-desc{font-size:16.5px;color:#3A4A63;max-width:480px;margin-bottom:32px;}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-primary{
-  background:var(--blue-deep);color:#fff;padding:14px 26px;border-radius:9px;
-  font-weight:600;font-size:15px;transition:background .2s,transform .2s;
-}
-.btn-primary:hover{background:var(--blue-bright);transform:translateY(-1px);}
-.btn-ghost{
-  border:1.5px solid var(--line);color:var(--blue-deep);padding:14px 26px;border-radius:9px;
-  font-weight:600;font-size:15px;transition:border-color .2s,background .2s;
-}
+.hero-desc{font-size:clamp(15px,1.6vw,16.5px);color:#3A4A63;max-width:480px;margin-bottom:28px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary,.btn-ghost{padding:14px 26px;border-radius:9px;font-weight:600;font-size:15px;text-align:center;}
+.btn-primary{background:var(--blue-deep);color:#fff;transition:background .2s;}
+.btn-primary:hover{background:var(--blue-bright);}
+.btn-ghost{border:1.5px solid var(--line);color:var(--blue-deep);}
 .btn-ghost:hover{border-color:var(--blue-mid);background:var(--blue-pale);}
-.hero-card{
-  background:linear-gradient(160deg,var(--blue-deep),var(--blue-mid) 60%,var(--blue-bright));
-  border-radius:20px;padding:36px 30px;color:#fff;
-  box-shadow:0 20px 50px -20px rgba(10,42,94,.45);
-}
-.hero-card .monogram{
-  width:66px;height:66px;border-radius:16px;background:rgba(255,255,255,.14);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-weight:700;font-size:26px;margin-bottom:22px;
-}
-.hero-card h3{font-family:var(--font-head);font-size:19px;font-weight:600;margin-bottom:8px;}
+.hero-card{background:linear-gradient(160deg,var(--blue-deep),var(--blue-mid) 60%,var(--blue-bright));border-radius:20px;padding:clamp(24px,4vw,36px) clamp(20px,3vw,30px);color:#fff;box-shadow:0 20px 50px -20px rgba(10,42,94,.45);}
+.hero-card img{height:64px;width:auto;margin-bottom:18px;}
+.hero-card h3{font-family:var(--font-head);font-size:19px;margin-bottom:8px;}
 .hero-card p{font-size:14px;opacity:.85;margin-bottom:22px;}
 .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid rgba(255,255,255,.2);padding-top:20px;}
-.hero-stats div b{display:block;font-family:var(--font-head);font-size:22px;font-weight:700;}
-.hero-stats div span{font-size:12.5px;opacity:.8;}
+.hero-stats b{display:block;font-family:var(--font-head);font-size:22px;}
+.hero-stats span{font-size:12.5px;opacity:.8;}
 
-/* SECTION SHARED */
-section{padding:88px 0;}
-.section-head{max-width:560px;margin-bottom:52px;}
+/* SHARED */
+.section-head{max-width:560px;margin-bottom:clamp(30px,5vw,52px);}
 .section-tag{color:var(--blue-mid);font-weight:600;font-size:13.5px;margin-bottom:12px;}
-h2{
-  font-family:var(--font-head);font-size:clamp(26px,3vw,36px);font-weight:700;
-  color:var(--blue-deep);letter-spacing:-.5px;margin-bottom:14px;
-}
+h2{font-family:var(--font-head);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--blue-deep);letter-spacing:-.5px;margin-bottom:14px;}
 .section-desc{color:#4A5A73;font-size:15.5px;max-width:520px;}
-
-
-
+.alt{background:linear-gradient(120deg,#E9EFF9,#F6F9FE,#DCE7F8,#E9EFF9);background-size:300% 300%;animation:bgMove 24s ease-in-out infinite;}
 
 /* ABOUT */
-.about{background:var(--blue-pale);}
-.about-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;}
+.about-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,56px);align-items:start;}
 .about-list{display:flex;flex-direction:column;gap:22px;}
 .about-item{display:flex;gap:16px;}
-.about-item .num{
-  font-family:var(--font-head);font-weight:700;color:var(--blue-bright);font-size:15px;
-  min-width:26px;
-}
-.about-item h4{font-size:16px;font-weight:600;margin-bottom:4px;color:var(--blue-deep);}
+.num{font-family:var(--font-head);font-weight:700;color:var(--blue-bright);font-size:15px;min-width:26px;}
+.about-item h4{font-size:16px;margin-bottom:4px;color:var(--blue-deep);}
 .about-item p{font-size:14.5px;color:#4A5A73;}
 
+/* PARCOURS */
+.timeline{position:relative;max-width:860px;margin:0 auto;padding-left:34px;}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--line);}
+.tl-item{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:20px;}
+.tl-item::before{content:"";position:absolute;left:-33px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--blue-bright);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue-bright);}
+.tl-date{font-size:13px;font-weight:600;color:var(--blue-bright);}
+.tl-item h4{font-family:var(--font-head);font-size:17px;color:var(--blue-deep);margin:2px 0;}
+.tl-item .where{font-size:14px;color:#4A5A73;font-weight:500;}
+.tl-item ul{margin:8px 0 0 18px;font-size:14px;color:#4A5A73;}
+.tl-tag{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--blue-pale);color:var(--blue-mid);margin-bottom:6px;}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;}
+.info-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;}
+.info-box h4{font-family:var(--font-head);color:var(--blue-deep);margin-bottom:12px;font-size:16px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chips span{font-size:13px;padding:5px 12px;border-radius:20px;background:var(--blue-pale);border:1px solid var(--line);color:var(--blue-deep);}
+
 /* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.service-card{
-  border:1px solid var(--line);border-radius:16px;padding:30px 26px;
-  transition:border-color .2s,box-shadow .2s;
-}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+.service-card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:28px 24px;transition:border-color .2s,box-shadow .2s;}
 .service-card:hover{border-color:var(--blue-bright);box-shadow:0 16px 34px -22px rgba(27,75,145,.35);}
-.service-icon{
-  width:46px;height:46px;border-radius:11px;background:var(--blue-pale);
-  display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--blue-deep);
-}
-.service-card h3{font-family:var(--font-head);font-size:18px;font-weight:600;margin-bottom:10px;color:var(--blue-deep);}
+.service-icon{width:46px;height:46px;border-radius:11px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--blue-deep);}
+.service-card h3{font-family:var(--font-head);font-size:18px;margin-bottom:10px;color:var(--blue-deep);}
 .service-card p{font-size:14.5px;color:#4A5A73;}
 
 /* PORTFOLIO */
-.portfolio{background:var(--blue-pale);}
-.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.pf-card{
-  background:#f4f5f6;border-radius:16px;overflow:hidden;border:1px solid var(--line);
-}
-.pf-thumb{
-  height:150px;display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-weight:700;font-size:20px;color:#131212;
-}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;}
+.pf-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line);}
+.pf-thumb{height:90px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:700;font-size:20px;color:#fff;}
 .pf-thumb.b1{background:linear-gradient(135deg,var(--blue-deep),var(--blue-bright));}
 .pf-thumb.b2{background:linear-gradient(135deg,var(--blue-mid),#4E86E8);}
 .pf-thumb.b3{background:linear-gradient(135deg,#123468,var(--blue-mid));}
-.pf-body{padding:20px 22px;}
+.pf-card img{width:100%;height:190px;object-fit:cover;}
+.pf-body{padding:18px 20px;}
 .pf-cat{font-size:12px;color:var(--blue-mid);font-weight:600;margin-bottom:6px;}
-.pf-body h4{font-size:16px;font-weight:600;margin-bottom:6px;color:var(--blue-deep);}
+.pf-body h4{font-size:16px;margin-bottom:6px;color:var(--blue-deep);}
 .pf-body p{font-size:13.5px;color:#4A5A73;}
+.projet{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;min-height:260px;}
+.projet img{width:100%;height:100%;min-height:260px;object-fit:cover;}
+.projet-overlay{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 16px;color:#fff;background:linear-gradient(to top,rgba(10,42,94,.92),transparent);}
+.projet-overlay h4{font-family:var(--font-head);font-size:16px;}
+.projet-overlay p{font-size:13px;opacity:.9;}
 
 /* CONTACT */
-.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
-.contact-info{display:flex;flex-direction:column;gap:22px;}
-.contact-row{display:flex;gap:16px;align-items:flex-start;}
-.contact-row .ic{
-  width:42px;height:42px;border-radius:10px;background:var(--blue-pale);color:var(--blue-deep);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.contact-row h4{font-size:14px;color:#4A5A73;font-weight:500;margin-bottom:2px;}
-.contact-row p{font-size:15.5px;font-weight:600;color:var(--blue-deep);}
-.social-row{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap;}
-.social-btn{
-  width:44px;height:44px;border-radius:10px;border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;color:var(--blue-deep);
-  transition:background .2s,border-color .2s,color .2s;
-}
-.social-btn:hover{background:var(--blue-deep);border-color:var(--blue-deep);color:#fff;}
-.contact-form{background:var(--blue-deep);border-radius:20px;padding:38px 34px;color:#fff;}
-.contact-form h3{font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:8px;}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);}
+.contact-info{display:flex;flex-direction:column;gap:20px;}
+.contact-link{display:flex;gap:16px;align-items:flex-start;width:100%;transition:transform .2s;}
+.contact-link:hover{transform:translateX(4px);}
+.ic{width:42px;height:42px;border-radius:10px;background:#fff;color:var(--blue-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,color .2s;}
+.contact-link:hover .ic{background:var(--blue-deep);color:#fff;}
+.contact-link h4{font-size:14px;color:#4A5A73;font-weight:500;}
+.contact-link p{font-size:15.5px;font-weight:600;color:var(--blue-deep);word-break:break-word;}
+.social-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+.social-btn{width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;color:var(--blue-deep);transition:.2s;}
+.social-btn:hover{background:var(--blue-deep);color:#fff;}
+.contact-form{background:var(--blue-deep);border-radius:20px;padding:clamp(24px,4vw,38px) clamp(20px,3vw,34px);color:#fff;}
+.contact-form h3{font-family:var(--font-head);font-size:20px;margin-bottom:8px;}
 .contact-form p{font-size:14px;opacity:.8;margin-bottom:24px;}
 .f-row{margin-bottom:16px;}
 .f-row label{font-size:13px;opacity:.85;display:block;margin-bottom:6px;}
-.f-row input,.f-row textarea{
-  width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
-  border-radius:8px;padding:11px 13px;color:#fff;font-family:var(--font-body);font-size:14px;
-}
-.f-row input::placeholder,.f-row textarea::placeholder{color:rgba(255,255,255,.45);}
-.f-row textarea{resize:vertical;min-height:80px;}
-.form-btn{
-  width:100%;background:#fff;color:var(--blue-deep);padding:13px;border:none;border-radius:8px;
-  font-weight:700;font-size:14.5px;cursor:pointer;transition:background .2s;
-}
-.form-btn:hover{background:var(--blue-pale);}
+.f-row input,.f-row textarea{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:11px 13px;color:#fff;font:inherit;font-size:16px;}
+.f-row input::placeholder,.f-row textarea::placeholder{color:rgba(255,255,255,.5);}
+.f-row textarea{resize:vertical;min-height:90px;}
+.form-btn{width:100%;background:#fff;color:var(--blue-deep);padding:13px;border:none;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;}
 
-/* FOOTER */
-footer{border-top:1px solid var(--line);padding:34px 0;}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-inner p{font-size:13.5px;color:#214d8f;}
+footer{border-top:1px solid var(--line);padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px));text-align:center;}
+footer p{font-size:13.5px;color:#214d8f;}
+:focus-visible{outline:2px solid var(--blue-bright);outline-offset:2px;}
 
 /* RESPONSIVE */
-@media (max-width:880px){
+@media (max-width:900px){
   .hero-inner,.about-inner,.contact-inner{grid-template-columns:1fr;}
-  .services-grid,.pf-grid{grid-template-columns:1fr 1fr;}
-  .nav-links{display:none;}
+  .info-grid{grid-template-columns:1fr;}
+  .burger{display:block;}
+  .nav-cta{display:none;}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--blue-deep);padding:8px clamp(16px,4vw,28px) 16px;}
+  .nav-links.open{display:flex;}
+  .nav-links a{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12);opacity:1;font-size:16px;}
 }
-
-.logo1 {
-  
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.logo1 img {
-    height: 80px;
-    width: auto;
-    
-}
-.logo1 span {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(45deg, var(--tech-cyan), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 @media (max-width:560px){
-  .services-grid,.pf-grid{grid-template-columns:1fr;}
-  .hero{padding:70px 0 60px;}
-  section{padding:64px 0;}
+  .logo1 img{height:40px;}.logo-text{font-size:15px;}
+  .hero-actions a{flex:1 1 100%;}
+  .pf-grid{grid-template-columns:1fr;}
+  .timeline{padding-left:28px;}.tl-item{padding:16px;}.tl-item::before{left:-27px;}
 }
-:focus-visible{outline:2px solid var(--blue-bright);outline-offset:2px;}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
-
-/* =====================================================
-   ARRIÈRE-PLAN ANIMÉ UNIQUEMENT (rien d'autre n'est modifié)
-   ===================================================== */
-
-/* Fond général du site : dégradé bleu très clair qui se déplace */
-body{
-  background:linear-gradient(120deg,#FFFFFF,#F2F6FD,#E3ECFA,#FFFFFF);
-  background-size:300% 300%;
-  animation:bgMove 22s ease-in-out infinite;
-}
-@keyframes bgMove{
-  0%,100%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-}
-
-/* Les sections servent de support aux lueurs animées */
-.hero,.about,.portfolio,#services,#contact{
-  position:relative;
-  overflow:hidden;
-  isolation:isolate;
-}
-
-/* Hero : dégradé animé + petits points discrets */
-.hero{
-  background:
-    radial-gradient(rgba(10,42,94,.07) 1px,transparent 1px),
-    radial-gradient(600px 340px at 85% -10%,var(--blue-pale) 0%,transparent 70%),
-    linear-gradient(120deg,#FFFFFF,#EEF3FC,#DCE7F9,#FFFFFF);
-  background-size:26px 26px,100% 100%,300% 300%;
-  animation:heroBg 24s ease-in-out infinite;
-}
-@keyframes heroBg{
-  0%,100%{background-position:0 0,0 0,0% 50%}
-  50%{background-position:26px 26px,0 0,100% 50%}
-}
-
-/* À propos et Portfolio : dégradé bleu pâle qui respire */
-.about,.portfolio{
-  background:linear-gradient(120deg,#E9EFF9,#F6F9FE,#DCE7F8,#E9EFF9);
-  background-size:300% 300%;
-  animation:bgMove 24s ease-in-out infinite;
-}
-
-/* Lueurs bleues qui flottent doucement derrière le contenu */
-.hero::before,.hero::after,
-.about::before,.about::after,
-.portfolio::before,.portfolio::after,
-#services::before,#services::after,
-#contact::before,#contact::after{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  border-radius:50%;
-  filter:blur(70px);
-  pointer-events:none;
-  will-change:transform;
-}
-@keyframes floatA{
-  0%,100%{transform:translate3d(0,0,0) scale(1)}
-  50%{transform:translate3d(70px,45px,0) scale(1.18)}
-}
-@keyframes floatB{
-  0%,100%{transform:translate3d(0,0,0) scale(1.1)}
-  50%{transform:translate3d(-60px,-40px,0) scale(.9)}
-}
-
-.hero::before{width:440px;height:440px;top:-140px;left:-120px;background:rgba(46,107,214,.28);animation:floatA 16s ease-in-out infinite;}
-.hero::after{width:380px;height:380px;bottom:-140px;right:8%;background:rgba(10,42,94,.18);animation:floatB 20s ease-in-out infinite;}
-
-.about::before{width:360px;height:360px;top:-100px;right:-80px;background:rgba(46,107,214,.20);animation:floatB 18s ease-in-out infinite;}
-.about::after{width:320px;height:320px;bottom:-120px;left:-60px;background:rgba(255,255,255,.95);animation:floatA 22s ease-in-out infinite;}
-
-#services::before{width:340px;height:340px;top:8%;right:-120px;background:rgba(46,107,214,.12);animation:floatB 20s ease-in-out infinite;}
-#services::after{width:300px;height:300px;bottom:0;left:-110px;background:rgba(27,75,145,.10);animation:floatA 24s ease-in-out infinite;}
-
-.portfolio::before{width:380px;height:380px;top:-120px;left:-100px;background:rgba(46,107,214,.18);animation:floatA 20s ease-in-out infinite;}
-.portfolio::after{width:340px;height:340px;bottom:-120px;right:-60px;background:rgba(255,255,255,.95);animation:floatB 24s ease-in-out infinite;}
-
-#contact::before{width:340px;height:340px;top:-60px;left:-110px;background:rgba(46,107,214,.12);animation:floatA 22s ease-in-out infinite;}
-#contact::after{width:320px;height:320px;bottom:-90px;right:-90px;background:rgba(10,42,94,.10);animation:floatB 18s ease-in-out infinite;}
-
-/* Petits écrans : lueurs plus petites pour rester fluide */
-@media (max-width:560px){
-  .hero::before,.hero::after,
-  .about::before,.about::after,
-  .portfolio::before,.portfolio::after,
-  #services::before,#services::after,
-  #contact::before,#contact::after{
-    width:240px;height:240px;filter:blur(45px);
-  }
-}
-
-/* Respecte le réglage "réduire les animations" de l'appareil */
-@media (prefers-reduced-motion:reduce){
-  body,.hero,.about,.portfolio,
-  .hero::before,.hero::after,.about::before,.about::after,
-  .portfolio::before,.portfolio::after,
-  #services::before,#services::after,
-  #contact::before,#contact::after{animation:none!important;}
-}
-
-.contact-link{
-  display:flex;
-  gap:16px;
-  align-items:flex-start;
-  color:inherit;
-  text-decoration:none;
-  width:100%;
-  transition:transform .2s;
-}
-.contact-link:hover{transform:translateX(4px);}
-.contact-link:hover .ic{
-  background:var(--blue-deep);
-  color:#fff;
-}
-.contact-link:hover p{
-  color:var(--blue-bright);
-  text-decoration:underline;
-}
-.contact-row .ic{transition:background .2s,color .2s;}
-.contact-link p{word-break:break-word;} /* évite que l'email déborde sur mobile */
-
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
 
 <header>
-
- <!-- Barre de Navigation -->
-    <nav class="navbar">
-        <div class="logo1">
-            <!-- Remplacez "logo.png" par le lien de votre logo -->
-            <img src="photos\logo or.png" alt="logo or" id="site-logo or">
-      <div class="logo-text">BADZO CREATION<span> CREATION</span></div>
-             
-        </div>
-    </nav>
-
-  <nav>
-   
-    <div class="nav-links">
+  <nav class="main" aria-label="Navigation principale">
+    <a href="#top" class="logo1">
+      <img src="photos/logo or.png" alt="Logo Badzo Creation">
+      <span class="logo-text">BADZO CREATION</span>
+    </a>
+    <div class="nav-links" id="nav-links">
       <a href="#apropos">À propos</a>
+      <a href="#parcours">Parcours</a>
       <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="nav-cta">Me contacter</a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="wrap hero-inner">
     <div>
-      <div class="eyebrow">Mbacké Cayor,Louga, Sénégal &quot;Badzo Creation transforme vos idée en une identité visuelle &quot;</div>
+      <div class="eyebrow">Mbacké Cayor, Louga, Sénégal — « Badzo Creation transforme vos idées en une identité visuelle »</div>
       <h1 class="hero-title">Management Informatisé des Organisations, <em>Marketing Digital</em> &amp; Infographie</h1>
       <p class="hero-desc">Étudiant en Management Informatisé des Organisations, formé en marketing digital et en infographie. J'aide les entreprises et les particuliers à structurer leurs outils, à communiquer efficacement et à donner vie à leur identité visuelle.</p>
       <div class="hero-actions">
         <a href="#portfolio" class="btn-primary">Voir mon portfolio</a>
-        <a href="#contact" class="btn-ghost">Me contacter</a>
+        <a href="#parcours" class="btn-ghost">Mon parcours</a>
       </div>
     </div>
     <div class="hero-card">
-      
-      <!-- Barre de Navigation -->
-    <nav class="navbar">
-        <div class="logo1">
-            <!-- Remplacez "logo.png" par le lien de votre logo -->
-            <img src="photos\logo or.png" alt="logo or" id="site-logo or">   
-        <class="logo-text" style="font-size:14px;">BADZO CREATION<span> CREATION</span></div>
-      </nav>
-    
-      <h3>MES COMPETENCES</h3>
-      <p>Management informatisé des organisations· Marketing · Infographie</p>
+      <img src="photos/logo or.png" alt="Badzo Creation">
+      <h3>MES COMPÉTENCES</h3>
+      <p>Management informatisé des organisations · Marketing · Infographie</p>
       <div class="hero-stats">
         <div><b>3</b><span>domaines de compétence</span></div>
         <div><b>100%</b><span>engagement client</span></div>
@@ -425,35 +196,71 @@ body{
   </div>
 </section>
 
-<section class="about" id="apropos">
+<section class="alt" id="apropos">
   <div class="wrap about-inner">
     <div class="section-head" style="margin-bottom:0;">
       <div class="section-tag">À propos</div>
       <h2>Une double compétence, technique et créative</h2>
-      <p class="section-desc">Je combine la rigueur d'une formation en Management informatisée des organisations avec la créativité du marketing et du design graphique, pour offrir des solutions complètes.</p>
+      <p class="section-desc">Je combine la rigueur d'une formation en Management informatisé des organisations avec la créativité du marketing et du design graphique, pour offrir des solutions complètes.</p>
     </div>
     <div class="about-list">
-      <div class="about-item">
-        <span class="num">01</span>
-        <div><h4>Management Informatisé des Organisations</h4><p>Organisation, gestion de données et outils numériques au service de la performance.</p></div>
-      </div>
-      <div class="about-item">
-        <span class="num">02</span>
-        <div><h4>Marketing digital</h4><p>Stratégies de communication et de visibilité adaptées aux réseaux et au terrain.</p></div>
-      </div>
-      <div class="about-item">
-        <span class="num">03</span>
-        <div><h4>Infographie &amp; identité visuelle</h4><p>Création de supports visuels, logos et contenus graphiques professionnels.</p></div>
-      </div>
-      <div class="about-item">
-        <span class="num">04</span>
-        <div><h4>Developpeur Web Junior</h4><p> participe à la conception, au développement et à la maintenance de sites internet et d'applications en ligne</p></div>
-      </div>
+      <div class="about-item"><span class="num">01</span><div><h4>Management Informatisé des Organisations</h4><p>Organisation, gestion de données et outils numériques au service de la performance.</p></div></div>
+      <div class="about-item"><span class="num">02</span><div><h4>Marketing digital</h4><p>Stratégies de communication et de visibilité adaptées aux réseaux et au terrain.</p></div></div>
+      <div class="about-item"><span class="num">03</span><div><h4>Infographie &amp; identité visuelle</h4><p>Création de supports visuels, logos et contenus graphiques professionnels.</p></div></div>
+      <div class="about-item"><span class="num">04</span><div><h4>Développeur Web Junior</h4><p>Participe à la conception, au développement et à la maintenance de sites internet et d'applications en ligne.</p></div></div>
     </div>
   </div>
 </section>
 
-<section id="services">
+<section id="parcours">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Parcours</div>
+      <h2>Mon parcours</h2>
+      <p class="section-desc">Formation, expérience et engagements associatifs : un chemin construit entre management, marketing et création visuelle.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-tag">Formation</span><div class="tl-date">2026 · en cours</div>
+        <h4>Licence 3 — Marketing et Infographie</h4><div class="where">IMN de Thiès</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-tag">Engagement</span><div class="tl-date">2025 – 2026</div>
+        <h4>Trésorier Général</h4><div class="where">Amical Mbacké Cajor</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-tag">Formation</span><div class="tl-date">Mars 2025</div>
+        <h4>Certificat Informatique et Internet</h4><div class="where">Force-N</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-tag">Engagement</span><div class="tl-date">2024 – 2025</div>
+        <h4>Président de la Commission d'Organisation</h4><div class="where">Amical des Étudiants Darois à Thiès</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-tag">Formation</span><div class="tl-date">Juillet 2022</div>
+        <h4>Baccalauréat</h4><div class="where">Diplômé</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-tag">Expérience</span><div class="tl-date">2020 – 2022</div>
+        <h4>Freelance — Expresso Touba</h4>
+        <ul><li>Prospection et vente directe</li><li>Atteinte des objectifs</li><li>Service et accompagnement client</li><li>Promotion de la marque</li></ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-tag">Engagement</span><div class="tl-date">2019 – 2021</div>
+        <h4>Président du Club Gymnastique</h4><div class="where">Lycée Mame Thierno Birahim Mbacké, Darou Mouhty</div>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-box"><h4>Compétences</h4><div class="chips"><span>Gestion de projet</span><span>Organisation</span><span>Photoshop</span><span>Illustrator</span><span>CapCut</span><span>Création de contenu</span><span>Bureautique</span><span>HTML / CSS</span></div></div>
+      <div class="info-box"><h4>Langues</h4><div class="chips"><span>Français</span><span>Anglais (intermédiaire)</span><span>Wolof</span></div></div>
+      <div class="info-box"><h4>Centres d'intérêt</h4><div class="chips"><span>Lecture</span><span>Sport</span><span>Photographie</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="services">
   <div class="wrap">
     <div class="section-head">
       <div class="section-tag">Services</div>
@@ -461,254 +268,60 @@ body{
       <p class="section-desc">Des services pensés pour accompagner entreprises, associations et particuliers de la région de Louga et au-delà.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
-        </div>
-        <h3>Management informatisée</h3>
-        <p>Mise en place d'outils numériques pour organiser, suivre et fiabiliser vos données et vos processus.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-7-7 18-2-8-9-3z"/></svg>
-        </div>
-        <h3>Marketing &amp; communication</h3>
-        <p>Stratégie de contenu, gestion de réseaux sociaux et campagnes pour développer votre visibilité.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <h3>Infographie &amp; design</h3>
-        <p>Logos, affiches, flyers et supports de communication à votre image, prêts à l'impression ou au web.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <h3>Developpeur Web junior</h3>
-        <p>participe à la conception, au développement et à la maintenance de sites internet et d'applications en ligne.</p>
-      </div>
-    </div>
+      <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h3>Management informatisé</h3><p>Mise en place d'outils numériques pour organiser, suivre et fiabiliser vos données et vos processus.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-7-7 18-2-8-9-3z"/></svg></div><h3>Marketing &amp; communication</h3><p>Stratégie de contenu, gestion de réseaux sociaux et campagnes pour développer votre visibilité.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Infographie &amp; design</h3><p>Logos, affiches, flyers et supports de communication à votre image, prêts à l'impression ou au web.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div><h3>Développeur Web junior</h3><p>Conception, développement et maintenance de sites internet et d'applications en ligne.</p></div>
     </div>
   </div>
 </section>
 
-<section class="portfolio" id="portfolio">
+<section id="portfolio">
   <div class="wrap">
     <div class="section-head">
       <div class="section-tag">Portfolio</div>
       <h2>Quelques réalisations</h2>
-      <p class="section-desc">Un aperçu de projets en cours de constitution — la galerie complète sera enrichie prochainement.</p>
+      <p class="section-desc">Un aperçu de mes projets — la galerie sera enrichie prochainement.</p>
     </div>
     <div class="pf-grid">
-      <div class="pf-card">
-        <div class="pf-thumb b1">Identité visuelle</div>
-        <img src="photos/logo.jpeg"  alt="logo">
-        <div class="pf-body"><div class="pf-cat">Infographie</div><h4>Logo &amp; charte graphique</h4><p>Conception d'une identité visuelle complète pour une petite entreprise locale.</p></div>
-      </div>
-      <div class="pf-card">
-        <div class="pf-thumb b2">Campagne réseaux</div>
-        <img src="photos/publicite badzo2.jpeg"  alt="publicite badzo2">
-        <div class="pf-body"><div class="pf-cat">Marketing</div><h4>Plan de communication digitale</h4><p>Stratégie de publication et visuels pour Facebook et Instagram.</p></div>
-      </div>
-      <div class="pf-card">
-        <div class="pf-thumb b3">Outil de gestion</div>
-        <img src="photos/banniere1.jpeg" alt="banniere1">
-        <div class="pf-body"><div class="pf-cat">Management informatisée</div><h4>Suivi de données sous Excel</h4><p>Tableau de bord pour le suivi d'activité d'une structure.</p></div>
-      </div>
+      <div class="pf-card"><div class="pf-thumb b1">Identité visuelle</div><img src="photos/logo.jpeg" alt="Logo" loading="lazy"><div class="pf-body"><div class="pf-cat">Infographie</div><h4>Logo &amp; charte graphique</h4><p>Conception d'une identité visuelle complète pour une petite entreprise locale.</p></div></div>
+      <div class="pf-card"><div class="pf-thumb b2">Campagne réseaux</div><img src="photos/publicite badzo2.jpeg" alt="Publicité Badzo" loading="lazy"><div class="pf-body"><div class="pf-cat">Marketing</div><h4>Plan de communication digitale</h4><p>Stratégie de publication et visuels pour Facebook et Instagram.</p></div></div>
+      <div class="pf-card"><div class="pf-thumb b3">Outil de gestion</div><img src="photos/banniere1.jpeg" alt="Bannière" loading="lazy"><div class="pf-body"><div class="pf-cat">Management informatisé</div><h4>Suivi de données sous Excel</h4><p>Tableau de bord pour le suivi d'activité d'une structure.</p></div></div>
 
-      
-<div class="projet">
-                <img src="photos/montage originale.jpg"  alt="montage originale">
-                <div class="projet-overlay">
-                 <h4>Affiche Événementielle</h4>
-                    <p>Design Print Haute Résolution</p></div>
-                    </div>
-<div class="projet">
-                <img src="photos/Appre-Comp-entr.jpg"  alt="Appre-Comp-entr">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>Campagne Social Media</h4>
-                      <p>centre de formation IMN DE THIES</p>
-                    </div>
-    </div>
-</div>
-    <div class="projet">
-                <img src="photos/khad.jpeg"  alt="khad">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>Campagne pour election</h4>
-                      <p>Le candidat ideal</p>
-                    </div>
-    </div>
-    </div>
-<div class="projet">
-                <img src="photos/ndey.jpeg"  alt="ndey">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>la styliste</h4>
-                      <p>La beaute de cette dame</p>
-                    </div>
-    </div>
-</div>
-    <div class="projet">
-                <img src="photos/max.jpeg"  alt="max">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>l'elegance</h4>
-                      <p>elle est belle</p>
-                    </div>
-    </div>
-    </div>
-      <div class="projet">
-                <img src="photos/magal.png"  alt="magal">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>Poeme didie a borom TOUBA</h4>
-                      <p>Le grand evenment</p>
-                    </div>
-                  </div>
-                  </div>
- <div class="projet">
-                <img src="photos\arame1.png"  alt="arame1">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>mon anniversaire</h4>
-                      <p>joyeux anniversaire</p>
-                    </div>
-                  </div>
-                  </div>
-                     <div class="projet">
-                <img src="photos\Bada NDIAYE.png"  alt="Bada NDIAYE">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>mariage</h4>
-                      <p>Heureux menage</p>
-                    </div>
-                    </div>
-                    </div>
-
-                     <div class="projet">
-                <img src="photos\badzo c.png"  alt="badzo c">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>Badzo Creation</h4>
-                      <p>Ma mission</p>
-                    </div>
-                    </div>
-                    </div>
-                     <div class="projet">
-                <img src="photos\creation.png"  alt="creation">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>Art de creer</h4>
-                      <p>La nouvelle creation</p>
-                    </div>
-                    </div>
-                    </div>
-                     <div class="projet">
-                <img src="photos\nourima1.png"  alt="nourima1">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>Logo Nourima</h4>
-                      <p>Votre boutique</p>
-                    </div>
-                    </div>
-                    </div>
-                     <div class="projet">
-                <img src="photos\Hayaat.png"  alt="Hayaat">
-                <div class="projet-overlay">
-                   <div class="projet-overlay">
-                    <h4>Logo Hayaat</h4>
-                      <p>votre entreprise </p>
-                    </div>
-
-
-
-    </div>
+      <div class="projet"><img src="photos/montage originale.jpg" alt="Montage original" loading="lazy"><div class="projet-overlay"><h4>Affiche événementielle</h4><p>Design print haute résolution</p></div></div>
+      <div class="projet"><img src="photos/Appre-Comp-entr.jpg" alt="Campagne IMN Thiès" loading="lazy"><div class="projet-overlay"><h4>Campagne Social Media</h4><p>Centre de formation IMN de Thiès</p></div></div>
+      <div class="projet"><img src="photos/khad.jpeg" alt="Campagne élection" loading="lazy"><div class="projet-overlay"><h4>Campagne pour élection</h4><p>Le candidat idéal</p></div></div>
+      <div class="projet"><img src="photos/ndey.jpeg" alt="La styliste" loading="lazy"><div class="projet-overlay"><h4>La styliste</h4><p>La beauté de cette dame</p></div></div>
+      <div class="projet"><img src="photos/max.jpeg" alt="L'élégance" loading="lazy"><div class="projet-overlay"><h4>L'élégance</h4><p>Elle est belle</p></div></div>
+      <div class="projet"><img src="photos/magal.png" alt="Magal" loading="lazy"><div class="projet-overlay"><h4>Poème dédié à Borom Touba</h4><p>Le grand événement</p></div></div>
+      <div class="projet"><img src="photos/arame1.png" alt="Anniversaire" loading="lazy"><div class="projet-overlay"><h4>Anniversaire</h4><p>Joyeux anniversaire</p></div></div>
+      <div class="projet"><img src="photos/Bada NDIAYE.png" alt="Mariage" loading="lazy"><div class="projet-overlay"><h4>Mariage</h4><p>Heureux ménage</p></div></div>
+      <div class="projet"><img src="photos/badzo c.png" alt="Badzo Creation" loading="lazy"><div class="projet-overlay"><h4>Badzo Creation</h4><p>Ma mission</p></div></div>
+      <div class="projet"><img src="photos/creation.png" alt="Art de créer" loading="lazy"><div class="projet-overlay"><h4>Art de créer</h4><p>La nouvelle création</p></div></div>
+      <div class="projet"><img src="photos/nourima1.png" alt="Logo Nourima" loading="lazy"><div class="projet-overlay"><h4>Logo Nourima</h4><p>Votre boutique</p></div></div>
+      <div class="projet"><img src="photos/Hayaat.png" alt="Logo Hayaat" loading="lazy"><div class="projet-overlay"><h4>Logo Hayaat</h4><p>Votre entreprise</p></div></div>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section class="alt" id="contact">
   <div class="wrap contact-inner">
     <div>
       <div class="section-tag">Contact</div>
       <h2>Discutons de votre projet</h2>
-      <p class="section-desc" style="margin-bottom:32px;">Disponible pour vos projets de gestion, marketing ou design, à Mbacke Cayor et à distance.</p>
+      <p class="section-desc" style="margin-bottom:28px;">Disponible pour vos projets de gestion, marketing ou design, à Mbacké Cayor et à distance.</p>
       <div class="contact-info">
-
-  <!-- Téléphone -->
-  <div class="contact-row">
-    <a href="tel:+221772501787" class="contact-link" aria-label="Appeler le +221 77 250 17 87">
-      <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.11 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.9a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.18-1.27a2 2 0 012.11-.45c.94.32 1.91.55 2.9.68A2 2 0 0122 16.92z"/></svg></div>
-      <div><h4>Téléphone</h4><p>+221 77 250 17 87</p></div>
-    </a>
-  </div>
-
-  <!-- Email -->
-  <div class="contact-row">
-    <a href="mailto:bada1996gueye@gmail.com" class="contact-link" aria-label="Envoyer un email">
-      <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
-      <div><h4>Email</h4><p>bada1996gueye@gmail.com</p></div>
-    </a>
-  </div>
-
-  <!-- Localisation -->
-  <div class="contact-row">
-    <a href="https://www.google.com/maps/search/?api=1&query=Mback%C3%A9+Cayor+Louga+S%C3%A9n%C3%A9gal" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Voir la localisation sur Google Maps">
-      <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <div><h4>Localisation</h4><p>Mbacké Cayor, Louga, Sénégal</p></div>
-    </a>
-  </div>
-</div>
-        </div><br>
-        <div class="social-row">
-         <!-- TikTok -->
-<a href="https://www.tiktok.com/@badagueye44" class="social-btn" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19.6 6.7a5.2 5.2 0 01-3.2-1.1 5.2 5.2 0 01-2-3.6h-3.3v13.1a2.7 2.7 0 11-2.7-2.7c.3 0 .5 0 .8.1V9.1a6 6 0 00-.8-.1 6.1 6.1 0 106.1 6.1V9a8.5 8.5 0 004.9 1.6V7.2a5.2 5.2 0 01-1.8-.5z"/>
-  </svg>
-</a>
-
-<!-- Facebook -->
-<a href="https://www.facebook.com/profile.php?id=61587628436255" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/>
-  </svg>
-</a>
-
-<!-- Instagram -->
-<a href="https://www.instagram.com/bada_badzo_gueye" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-    <rect x="3" y="3" width="18" height="18" rx="5"/>
-    <circle cx="12" cy="12" r="4"/>
-    <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-  </svg>
-</a>
-
-<!-- LinkedIn -->
-<a href="https://www.linkedin.com/in/bada-gueye-937b1b375" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M4.98 3.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97V21H9z"/>
-  </svg>
-</a>
-
-<!-- WhatsApp -->
-<a href="https://wa.me/221772501787" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9 1-2.2.2-.2.5-.3.8-.3h.5c.2 0 .4 0 .6.5.2.6.7 1.9.8 2 .1.2.1.4 0 .6-.6 1.2-1.2 1.1-.6 2 .9 1.6 1.7 2.1 3.1 2.8.2.1.4.1.5-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.9.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/>
-  </svg>
-</a>
-
-<!-- Behance -->
-<a href="https://www.behance.net/badagueye1" class="social-btn" aria-label="Behance" target="_blank" rel="noopener noreferrer">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M8.2 11.2c1.2-.5 1.8-1.4 1.8-2.7 0-2.4-1.7-3.3-4-3.3H0v13.6h6.3c2.4 0 4.5-1.2 4.5-3.9 0-1.7-.9-3-2.6-3.7zM3 7.5h2.6c.9 0 1.6.4 1.6 1.4 0 1.1-.8 1.4-1.7 1.4H3V7.5zm2.9 8.7H3v-3.3h3c1.1 0 1.9.5 1.9 1.7 0 1.2-1 1.6-2 1.6zM15.7 8.4c-3 0-4.8 2.1-4.8 5 0 3 1.7 5 4.8 5 2.4 0 3.9-1.1 4.5-3.4h-2.3c-.2.7-1 1.4-2.2 1.4-1.7 0-2.4-1-2.5-2.6H22v-.8c0-2.8-1.6-4.6-4.3-4.6h-2zm-2.3 4c.1-1.3.9-2.2 2.3-2.2 1.3 0 2 .9 2.1 2.2h-4.4zM14 5.8h5.6v1.5H14z"/>
-  </svg>
-</a>
-        </div>
+        <a href="tel:+221772501787" class="contact-link" aria-label="Appeler"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.11 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.9a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.18-1.27a2 2 0 012.11-.45c.94.32 1.91.55 2.9.68A2 2 0 0122 16.92z"/></svg></div><div><h4>Téléphone</h4><p>+221 77 250 17 87</p></div></a>
+        <a href="mailto:bada1996gueye@gmail.com" class="contact-link" aria-label="Envoyer un email"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div><div><h4>Email</h4><p>bada1996gueye@gmail.com</p></div></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Mback%C3%A9+Cayor+Louga+S%C3%A9n%C3%A9gal" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Localisation"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>Localisation</h4><p>Mbacké Cayor, Louga, Sénégal</p></div></a>
+      </div>
+      <div class="social-row">
+        <a href="https://www.tiktok.com/@badagueye44" class="social-btn" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.7a5.2 5.2 0 01-3.2-1.1 5.2 5.2 0 01-2-3.6h-3.3v13.1a2.7 2.7 0 11-2.7-2.7c.3 0 .5 0 .8.1V9.1a6 6 0 00-.8-.1 6.1 6.1 0 106.1 6.1V9a8.5 8.5 0 004.9 1.6V7.2a5.2 5.2 0 01-1.8-.5z"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61587628436255" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a>
+        <a href="https://www.instagram.com/bada_badzo_gueye" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.linkedin.com/in/bada-gueye-937b1b375" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97V21H9z"/></svg></a>
+        <a href="https://wa.me/221772501787" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9 1-2.2.2-.2.5-.3.8-.3h.5c.2 0 .4 0 .6.5.2.6.7 1.9.8 2 .1.2.1.4 0 .6-.6 1.2-1.2 1.1-.6 2 .9 1.6 1.7 2.1 3.1 2.8.2.1.4.1.5-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.9.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
+        <a href="https://www.behance.net/badagueye1" class="social-btn" aria-label="Behance" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8.2 11.2c1.2-.5 1.8-1.4 1.8-2.7 0-2.4-1.7-3.3-4-3.3H0v13.6h6.3c2.4 0 4.5-1.2 4.5-3.9 0-1.7-.9-3-2.6-3.7zM3 7.5h2.6c.9 0 1.6.4 1.6 1.4 0 1.1-.8 1.4-1.7 1.4H3V7.5zm2.9 8.7H3v-3.3h3c1.1 0 1.9.5 1.9 1.7 0 1.2-1 1.6-2 1.6zM15.7 8.4c-3 0-4.8 2.1-4.8 5 0 3 1.7 5 4.8 5 2.4 0 3.9-1.1 4.5-3.4h-2.3c-.2.7-1 1.4-2.2 1.4-1.7 0-2.4-1-2.5-2.6H22v-.8c0-2.8-1.6-4.6-4.3-4.6h-2zm-2.3 4c.1-1.3.9-2.2 2.3-2.2 1.3 0 2 .9 2.1 2.2h-4.4zM14 5.8h5.6v1.5H14z"/></svg></a>
       </div>
     </div>
     <div class="contact-form">
@@ -725,39 +338,13 @@ body{
 </section>
 
 <footer>
-  <div class="wrap footer-inner">
-    <div class="logo">
-
- <!-- Barre de navigation -->
-
-  
-
-    <a href="#accueil" class="brand">
-      <img src="photos/logo.jpeg" alt="Logo Badzo Creation" class="brand-logo" width="40" height="40"><span class="logo-text">BADZO <br><span> CREATION</span></span></a>
-   <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
-    </button>
-    
-    <div>
-      <nav class="navbar" aria-label="Navigation principale"> 
-    <ul class="nav-menu" id="nav-menu">
-      <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-            <li><a href="#services">Services</a></li>
-    </ul>
-  </nav>
-  </div>
-
-
-<!-- ... le reste de ta page ... -->
-
-<!-- Pied de page -->
-<footer class="footer">
-  <div class="wrap">
-    <p>© 2026 Badzo Creation — Louga, Sénégal. Tous droits réservés.</p>
-  </div>
-</footer>
+  <div class="wrap"><p>© 2026 Badzo Creation — Louga, Sénégal. Tous droits réservés.</p></div>
 </footer>
 
+<script>
+const b=document.getElementById('burger'),n=document.getElementById('nav-links');
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰';});
+n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');b.textContent='☰';b.setAttribute('aria-expanded',false);}));
+</script>
 </body>
 </html>
