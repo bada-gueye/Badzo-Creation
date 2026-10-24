@@ -31,7 +31,7 @@ nav.main{display:flex;align-items:center;justify-content:space-between;gap:16px;
 
 /* HERO */
 section{padding:clamp(56px,8vw,88px) 0;position:relative;overflow:hidden;isolation:isolate;}
-.hero{padding:clamp(50px,8vw,100px) 0 clamp(50px,7vw,90px);background:linear-gradient(120deg,#FFF,#EEF3FC,#DCE7F9,#FFF);background-size:300% 300%;animation:bgMove 24s ease-in-out infinite;}
+.hero{padding:clamp(50px,8vw,100px) 0 clamp(50px,7vw,90px);background:rgba(255,255,255,.35);}
 .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,56px);align-items:center;}
 .eyebrow{font-size:13.5px;color:var(--blue-mid);font-weight:600;margin-bottom:18px;}
 h1.hero-title{font-family:var(--font-head);font-size:clamp(28px,4.4vw,52px);font-weight:700;line-height:1.1;letter-spacing:-1px;color:var(--blue-deep);margin-bottom:22px;}
@@ -56,7 +56,7 @@ h1.hero-title{font-family:var(--font-head);font-size:clamp(28px,4.4vw,52px);font
 .section-tag{color:var(--blue-mid);font-weight:600;font-size:13.5px;margin-bottom:12px;}
 h2{font-family:var(--font-head);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--blue-deep);letter-spacing:-.5px;margin-bottom:14px;}
 .section-desc{color:#4A5A73;font-size:15.5px;max-width:520px;}
-.alt{background:linear-gradient(120deg,#E9EFF9,#F6F9FE,#DCE7F8,#E9EFF9);background-size:300% 300%;animation:bgMove 24s ease-in-out infinite;}
+.alt{background:rgba(233,239,249,.55);}
 
 /* ABOUT */
 .about-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,56px);align-items:start;}
@@ -134,6 +134,26 @@ footer{border-top:1px solid var(--line);padding:28px 0 calc(28px + env(safe-area
 footer p{font-size:13.5px;color:#214d8f;}
 :focus-visible{outline:2px solid var(--blue-bright);outline-offset:2px;}
 
+
+/* VIDEO ARRIÈRE-PLAN */
+.bg-video{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#EEF3FC;pointer-events:none;}
+.bg-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.bg-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.80),rgba(235,242,252,.86));}
+
+.bg-marquee{position:absolute;left:-30%;top:-30%;width:160%;height:160%;z-index:1;display:flex;flex-direction:column;justify-content:space-around;transform:translate3d(0,var(--py,0px),0) rotate(-12deg);will-change:transform;}
+.mq-row{display:flex;width:max-content;animation:mq 45s linear infinite;}
+.mq-row.rev{animation-direction:reverse;animation-duration:55s;}
+.mq-row.slow{animation-duration:70s;}
+.mq-row span{display:inline-flex;align-items:center;gap:12px;margin-right:28px;padding:14px 26px;border-radius:60px;font-family:var(--font-head);font-weight:600;font-size:clamp(18px,2.4vw,28px);color:rgba(27,75,145,.34);background:rgba(255,255,255,.38);border:1px solid rgba(46,107,214,.18);backdrop-filter:blur(2px);white-space:nowrap;}
+.mq-row span i{font-style:normal;font-size:1.2em;}
+.mq-row span:nth-child(3n){background:rgba(46,107,214,.14);}
+.mq-row span:nth-child(4n){color:rgba(10,42,94,.38);}
+@keyframes mq{to{transform:translateX(-50%)}}
+.glow{position:absolute;z-index:1;border-radius:50%;filter:blur(80px);animation:glow 18s ease-in-out infinite;}
+.glow.g1{width:420px;height:420px;left:-100px;top:10%;background:rgba(46,107,214,.28);}
+.glow.g2{width:380px;height:380px;right:-80px;bottom:5%;background:rgba(10,42,94,.2);animation-delay:-8s;}
+@keyframes glow{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-50px) scale(1.2)}}
+
 /* RESPONSIVE */
 @media (max-width:900px){
   .hero-inner,.about-inner,.contact-inner{grid-template-columns:1fr;}
@@ -150,10 +170,21 @@ footer p{font-size:13.5px;color:#214d8f;}
   .pf-grid{grid-template-columns:1fr;}
   .timeline{padding-left:28px;}.tl-item{padding:16px;}.tl-item::before{left:-27px;}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+@media (prefers-reduced-motion:reduce){.bg-video video{display:none;}.bg-marquee{transform:rotate(-12deg);}*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
+
+<div class="bg-video" aria-hidden="true">
+  <video id="bgv" autoplay muted loop playsinline preload="auto" poster="photos/logo.jpeg">
+    <source src="video/creation-contenu.mp4" type="video/mp4">
+    <source src="video/creation-contenu.webm" type="video/webm">
+  </video>
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="bg-marquee" id="mq">
+    <div class="mq-row "><span><i>🎬</i>Création de contenu</span><span><i>🎨</i>Identité visuelle</span><span><i>📸</i>Photographie</span><span><i>✏️</i>Logo</span><span><i>🎥</i>Montage vidéo</span><span><i>💡</i>Idées</span><span><i>🎬</i>Création de contenu</span><span><i>🎨</i>Identité visuelle</span><span><i>📸</i>Photographie</span><span><i>✏️</i>Logo</span><span><i>🎥</i>Montage vidéo</span><span><i>💡</i>Idées</span></div><div class="mq-row rev"><span><i>📱</i>Réseaux sociaux</span><span><i>🖌️</i>Infographie</span><span><i>▶️</i>Motion design</span><span><i>🖼️</i>Affiches</span><span><i>🚀</i>Marketing digital</span><span><i>✨</i>Badzo Creation</span><span><i>📱</i>Réseaux sociaux</span><span><i>🖌️</i>Infographie</span><span><i>▶️</i>Motion design</span><span><i>🖼️</i>Affiches</span><span><i>🚀</i>Marketing digital</span><span><i>✨</i>Badzo Creation</span></div><div class="mq-row slow"><span><i>🎞️</i>CapCut</span><span><i>🅿️</i>Photoshop</span><span><i>🅰️</i>Illustrator</span><span><i>💻</i>Développement web</span><span><i>📊</i>Management</span><span><i>🎯</i>Stratégie</span><span><i>🎞️</i>CapCut</span><span><i>🅿️</i>Photoshop</span><span><i>🅰️</i>Illustrator</span><span><i>💻</i>Développement web</span><span><i>📊</i>Management</span><span><i>🎯</i>Stratégie</span></div><div class="mq-row rev slow"><span><i>💡</i>Idées</span><span><i>🎥</i>Montage vidéo</span><span><i>✏️</i>Logo</span><span><i>📸</i>Photographie</span><span><i>🎨</i>Identité visuelle</span><span><i>🎬</i>Création de contenu</span><span><i>💡</i>Idées</span><span><i>🎥</i>Montage vidéo</span><span><i>✏️</i>Logo</span><span><i>📸</i>Photographie</span><span><i>🎨</i>Identité visuelle</span><span><i>🎬</i>Création de contenu</span></div><div class="mq-row "><span><i>✨</i>Badzo Creation</span><span><i>🚀</i>Marketing digital</span><span><i>🖼️</i>Affiches</span><span><i>▶️</i>Motion design</span><span><i>🖌️</i>Infographie</span><span><i>📱</i>Réseaux sociaux</span><span><i>✨</i>Badzo Creation</span><span><i>🚀</i>Marketing digital</span><span><i>🖼️</i>Affiches</span><span><i>▶️</i>Motion design</span><span><i>🖌️</i>Infographie</span><span><i>📱</i>Réseaux sociaux</span></div>
+  </div>
+</div>
 
 <header>
   <nav class="main" aria-label="Navigation principale">
@@ -223,7 +254,9 @@ footer p{font-size:13.5px;color:#214d8f;}
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-tag">Formation</span><div class="tl-date">2026 · en cours</div>
-        <h4>Licence 3 — Marketing et Infographie</h4><div class="where">IMN de Thiès</div>
+        <h4>Licence 3 — Management Informatisée des Organisations </h4><div class="where">UIDT de Thiès</div>
+        <span class="tl-tag">Formation</span><div class="tl-date">En Octobre 2026</div>
+        <h4>Marketing et Infographie</h4><div class="where">IMN de Thiès</div>
       </div>
       <div class="tl-item">
         <span class="tl-tag">Engagement</span><div class="tl-date">2025 – 2026</div>
@@ -345,6 +378,10 @@ footer p{font-size:13.5px;color:#214d8f;}
 const b=document.getElementById('burger'),n=document.getElementById('nav-links');
 b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰';});
 n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');b.textContent='☰';b.setAttribute('aria-expanded',false);}));
+const v=document.getElementById('bgv');
+if(v){v.addEventListener('error',()=>v.remove(),true);v.querySelectorAll('source').forEach(x=>x.addEventListener('error',()=>{if(!v.querySelector('source:not([data-bad])'))v.remove();x.dataset.bad=1;}));const p=v.play();if(p&&p.catch)p.catch(()=>{});}
+const mq=document.getElementById('mq');let t=false;
+addEventListener('scroll',()=>{if(t)return;t=true;requestAnimationFrame(()=>{mq.style.setProperty('--py',(-scrollY*.12)+'px');t=false;});},{passive:true});
 </script>
 </body>
 </html>
